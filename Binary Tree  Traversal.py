@@ -33,12 +33,12 @@ class Solution:
         res = []
         stack = [root]
         while stack:
-            u = stack.pop()
-            res.append(u.val)
-            if u.right:
-                stack.append(u.right)
-            if u.left:
-                stack.append(u.left)
+            p = stack.pop()
+            res.append(p.val)
+            if p.right:
+                stack.append(p.right)
+            if p.left:
+                stack.append(p.left)
         return res
     def preorderTraversal(self, root):#recursive
  
