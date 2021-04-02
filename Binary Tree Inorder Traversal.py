@@ -5,7 +5,7 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def inorderTraversal(self, root):
+    def inorderTraversal(self, root):#non-recursive
         result = []
         stack = []
         p = root
@@ -17,4 +17,11 @@ class Solution:
                 p = stack.pop()
                 result.append(p.val)
                 p = p.right
+        return result
+    def inorderTraversal(self, root):#recursive
+        result = []
+        if root:
+            result = self.inorderTraversal(root.left)
+            result.append(root.val)
+            result = result +self.inorderTraversal(root.right)
         return result
