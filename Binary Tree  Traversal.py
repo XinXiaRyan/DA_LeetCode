@@ -25,3 +25,27 @@ class Solution:
             result.append(root.val)
             result = result +self.inorderTraversal(root.right)
         return result
+
+
+    def preorderTraversal(self, root):#non-recursive
+        if not root:
+            return []
+        res = []
+        stack = [root]
+        while stack:
+            u = stack.pop()
+            res.append(u.val)
+            if u.right:
+                stack.append(u.right)
+            if u.left:
+                stack.append(u.left)
+        return res
+    def preorderTraversal(self, root):#recursive
+ 
+        if not root:
+            return []
+        elif not root.left and not root.right:
+            return [root.val]
+        l = self.preorderTraversal(root.left)
+        r = self.preorderTraversal(root.right)
+        return [root.val]+l+r
